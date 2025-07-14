@@ -4,17 +4,17 @@ Lum is a fun and friendly relationship companion app designed to help you keep t
 
 ## Features
 
-- Personalized date recommendations  
-- Gift ideas tailored to your partner  
-- Handy message prompts to express your feelings  
-- Secure authentication with email/password and Google sign-in  
+- Personalized date recommendations
+- Gift ideas tailored to your partner
+- Handy message prompts to express your feelings
+- Secure authentication with email/password and Google sign-in
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v16+ recommended)  
-- npm or yarn  
-- Firebase project for authentication  
+- Node.js (v16+ recommended)
+- npm or yarn
+- Firebase project for authentication
 
 ### Installation

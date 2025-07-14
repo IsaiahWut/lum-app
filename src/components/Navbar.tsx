@@ -6,7 +6,11 @@ import { useEffect, useState } from 'react';
 import { auth } from '@/lib/firebase';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 
-export default function Navbar({ onLoginClick }: { onLoginClick?: () => void }) {
+export default function Navbar({
+  onLoginClick,
+}: {
+  onLoginClick?: () => void;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [user, setUser] = useState<null | object>(null);
@@ -30,7 +34,10 @@ export default function Navbar({ onLoginClick }: { onLoginClick?: () => void }) 
   return (
     <nav className="w-full px-6 py-4 bg-pink-300 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-pink-700 hover:text-pink-800 transition">
+        <Link
+          href="/"
+          className="text-2xl font-bold text-pink-700 hover:text-pink-800 transition"
+        >
           Lum 💘
         </Link>
 

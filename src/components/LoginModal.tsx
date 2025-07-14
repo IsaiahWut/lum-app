@@ -2,10 +2,7 @@
 
 import { useState } from 'react';
 import { auth, provider } from '@/lib/firebase';
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { FaGoogle } from 'react-icons/fa';
 
 export default function LoginModal({ onClose }: { onClose: () => void }) {
@@ -52,7 +49,9 @@ export default function LoginModal({ onClose }: { onClose: () => void }) {
           &times;
         </button>
 
-        <h2 className="text-2xl font-bold mb-4 text-pink-700 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-pink-700 text-center">
+          Login
+        </h2>
 
         <label className="block text-left font-semibold mb-1">Email</label>
         <input

@@ -7,7 +7,11 @@ import Footer from '@/components/Footer';
 import LoginModal from '@/components/LoginModal';
 import '../styles/globals.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [showModal, setShowModal] = useState(false);
