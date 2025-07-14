@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth, db } from '@/lib/firebase'; // Make sure you export `db` from your firebase config
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import type { User } from 'firebase/auth';
 
@@ -81,11 +81,22 @@ export default function OnboardingPage() {
   const availabilityOptions = ['Weekdays', 'Weekends', 'Evenings', 'Flexible'];
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (!user) {
         router.push('/');
+        return;
+      }
+      setUser(user);
+
+      // Check if user doc exists to skip onboarding
+      const userDocRef = doc(db, 'users', user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        // User already onboarded, redirect to dashboard
+        router.push('/dashboard');
       } else {
-        setUser(user);
+        // User not onboarded, show onboarding
         setLoading(false);
       }
     });
